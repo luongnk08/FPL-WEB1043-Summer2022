@@ -111,3 +111,146 @@ var tong = 0;
 });
 
 console.log("Tong = " + tong);
+
+var mang3 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+mang3.pop();
+
+console.log("mang3 = " + mang3);
+
+// Bai tap
+// in ra cac phan tu chia het cho 3 trong mang
+
+for (var i = 0; i < mang3.length; i++) {
+  // kiem tra phan tu thu i co chia het cho 3 khong
+  if (mang3[i] % 3 === "0") {
+    console.log("So chia het cho 3: " + mang3[i]);
+  }
+}
+
+// Kiem tra kieu du lieu trong JS
+// dung tu khoa: typeof
+
+var kieu1 = "four";
+var kieu2 = 3;
+var kieu3 = "10000";
+
+console.log("kieu1 = " + typeof kieu1);
+console.log("kieu2 = " + typeof kieu2);
+
+// ham isNaN: kiem tra mot bien co phai la so hay khong
+// gia tri: NaN (Not a number)
+
+if (isNaN(kieu3)) {
+  console.log("kieu3 khong phai la 1 so");
+} else {
+  console.log("kieu3 la 1 so");
+}
+
+console.log("gia tri isNaN(kieu1) = " + isNaN(kieu1));
+
+// Ham trong JS
+
+function tinhTong() {
+  // viet code cho ham tai day
+  console.log("toi la ham tinhTong");
+}
+
+tinhTong();
+
+// ham co tham so
+function tinhTong1(a, b, c) {
+  console.log("Gia tri: ", a, b, c);
+  return a + b + c;
+}
+
+var kq1 = tinhTong1(1, 2, 3);
+console.log("kq1 = " + kq1);
+console.log("tinhTong = " + tinhTong());
+
+var kq2 = tinhTong1(1, 2, 3, 4);
+var kq3 = tinhTong1(1, 2);
+console.log("kq2 = " + kq2);
+console.log("kq3 = " + kq3);
+
+var kq4 = tinhTong1("abc", "xyz", "mnq");
+var kq5 = tinhTong1("abc");
+console.log("kq5 = " + kq5);
+
+// Object trong JS
+// cach 1: {}
+// cach 2: new Object();
+
+var obj1 = {
+  // khai bao thuoc tinh
+  thuocTinh1: 10,
+  thuocTinh2: 3,
+  thuocTinh3: "ABC",
+
+  // khai bao phuong thuc
+  phuongThuc1: function () {
+    console.log("Phuong thuc 1");
+  },
+  phuongThuc2: function () {
+    return this.thuocTinh1 + this.thuocTinh2;
+  },
+};
+
+obj1.phuongThuc1();
+console.log(obj1.phuongThuc2());
+
+// them thuoc tinh va phuong thuc cho obj1
+obj1.thuocTinhMoiThem = "10000";
+obj1.phuongThucMoiThem = function () {
+  console.log("Phuong thuc moi them");
+};
+
+console.log("obj1 = ", obj1);
+
+var obj2 = new Object(); // = {}
+obj2.thuocTinh = 100;
+obj2.phuongThuc = function () {
+  console.log("Phuong thuc");
+};
+
+// Cach nhap du lieu:
+// Ham prompt
+
+var ketQuaPrompt = prompt("Moi ban nhap vao 1 so");
+
+if (isNaN(ketQuaPrompt)) {
+  console.log(ketQuaPrompt + " khong phai la so");
+} else {
+  console.log(ketQuaPrompt + " la so");
+
+  // ep kieu
+  var sauKhiEpKieu = Number(ketQuaPrompt);
+  console.log("sauKhiEpKieu: " + typeof sauKhiEpKieu);
+}
+
+// ham alert: hien thi thong bao ra man hinh
+alert(ketQuaPrompt);
+
+// BAI TAP
+// nhap vao 1 so N, voi dieu kien: N > 1 va N <= 20 (neu khong dung thi thong bao ra man hinh)
+// Neu dung, thi tinh tong cua: 1 + 2 + ... + N - 1 + N
+// sau do thong bao ket qua ra man hinh
+
+var N = prompt("Moi ban nhap vao 1 so:");
+
+if (isNaN(N)) {
+  alert(N + " khong plai la 1 so!");
+} else {
+  N = Number(N);
+
+  if (N > 1 && N <= 20) {
+    var tong = 0;
+
+    for (var i = 1; i <= N; i++) {
+      tong = tong + i;
+    }
+
+    alert("Tong tu 1 den N = " + tong);
+  } else {
+    alert("N phai thoa man: N > 1 va N <= 20");
+  }
+}
