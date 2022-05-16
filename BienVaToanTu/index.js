@@ -254,3 +254,43 @@ if (isNaN(N)) {
     alert("N phai thoa man: N > 1 va N <= 20");
   }
 }
+
+// =================================================================
+// 1. Toan tu 1 ngoi
+// bao gom: +, -, ++, --
+
+var n = 3;
+console.log(-n);
+
+n++; // (n = n + 1);
+++n;
+
+n = 5;
+
+var n1 = n++;
+var n2 = ++n;
+
+console.log("n1, n2:", n1, n2);
+
+n--; // (n = n - 1);
+--n;
+
+// 2. Toan tu 2 ngoi
+// bao gom: &, |, +, -, *, /, %, &&, ||
+
+n = n + 1; // n += 1;
+n = n - 1; // n -= 1;
+n = n * 1; // n *= 1
+n = n / 1; // devide: chia lay phan nguyen, n /= 1;
+n = n % 1; // module: chia lay phan du, n %= 1;
+
+// phep va: &, hoac: |
+
+var phep1 = true & false;
+var phep2 = true && false;
+
+var phep3 = n - 3 == 0 && n % 3 == 0;
+var phep4 = (n - 3 == 0) & (n % 3 == 0);
+
+var phep3 = n - 3 == 0 || n % 3 == 0; // chi tinh toan ve ben phai neu ve ben trai = false
+var phep4 = (n - 3 == 0) | (n % 3 == 0); // luon luon tinh toan ca 2 ben
