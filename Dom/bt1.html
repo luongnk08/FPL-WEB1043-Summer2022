@@ -7,10 +7,28 @@
     <title>Document</title>
   </head>
   <body>
+    <!-- .value -->
     <input id="so1" type="text" />
     <br />
     <input id="so2" type="text" />
-    <button>CONG</button>
-    <h4>Ket qua: 0</h4>
+    <button id="btnCong">CONG</button>
+    <h4 id="kq">Ket qua: 0</h4>
+
+    <script type="text/javascript">
+      // lay ra 2 node input
+      let so1Element = document.getElementById("so1");
+      let so2Element = document.getElementById("so2");
+
+      // lay ra button cong
+      let btnCong = document.getElementById("btnCong");
+
+      btnCong.onclick = function () {
+        let so1Value = so1Element.value;
+        let so2Value = so2Element.value;
+
+        let ketQua = Number(so1Value) + Number(so2Value);
+        document.getElementById("kq").innerText = "Ket qua: " + ketQua;
+      };
+    </script>
   </body>
 </html>
