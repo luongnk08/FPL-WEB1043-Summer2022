@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <h1>Bai 1</h1>
+      <table border="1px solid black">
+        <tr>
+          <td>1</td>
+          <td>Tieu de thu 1</td>
+          <td><button>Delete</button></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Tieu de thu 2</td>
+          <td><button>Delete</button></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Tieu de thu 3</td>
+          <td><button>Delete</button></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Tieu de thu 4</td>
+          <td><button>Delete</button></td>
+        </tr>
+      </table>
+    </div>
+    <hr />
+    <div>
+      <h1>Bai 3</h1>
+      <input id="titleInput" type="text" />
+      <input type="button" value="Add" onclick="addTitle()" />
+      <div id="result"></div>
+    </div>
+
+    <script type="text/javascript">
+      // BAI 1
+      let buttons = document.getElementsByTagName("button");
+
+      for (let i = 0; i < buttons.length; i++) {
+        buttons[i].onclick = function () {
+          this.parentElement.parentElement.remove();
+        };
+      }
+
+      // BAI 3
+      let titleInput = document.getElementById("titleInput");
+
+      function addTitle() {
+        let inputValue = titleInput.value;
+        if (inputValue.trim().length <= 0) {
+          alert("Chua nhap title. Moi ban nhap vao");
+        } else {
+          let titleDiv = document.createElement("div");
+          titleDiv.innerText = inputValue;
+          titleDiv.style.backgroundColor = "red";
+          titleDiv.style.marginTop = "5px";
+
+          let resultDiv = document.getElementById("result");
+          resultDiv.appendChild(titleDiv);
+        }
+      }
+    </script>
+  </body>
+</html>
