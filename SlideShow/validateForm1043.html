@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .loi {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <label>Ho ten: <input id="hoTen" type="text" /></label
+      ><span class="loi" id="loiHoTen"></span><br />
+      <label>Gioi tinh: </label><span class="loi" id="loiGioiTinh"></span><br />
+      <input type="radio" name="gioiTinh" id="red" />Nam
+      <input type="radio" name="gioiTinh" id="blue" />Nu<br />
+      <label>So thich:</label>
+      <input type="checkbox" name="soThich" value="Doc sach" />Doc sach
+      <input type="checkbox" name="soThich" value="Choi game" />Choi game
+      <input type="checkbox" name="soThich" value="The thao" />The thao<span
+        class="loi"
+        id="loiSoThich"
+      ></span
+      ><br />
+      <label>Que quan:</label>
+      <select id="queQuan">
+        <option value=""></option>
+        <option value="hanoi">Ha Noi</option>
+        <option value="haiphong">Hai Phong</option>
+        <option value="namdinh">Nam Dinh</option>
+        <option value="quangninh">Quang Ninh</option></select
+      ><span class="loi" id="loiQueQuan"></span><br />
+      <button type="button" onclick="dangKy();">Dang ky</button>
+    </form>
+
+    <script type="text/javascript">
+      function dangKy() {
+        let loiHoTen = document.getElementById("loiHoTen");
+        let loiGioiTinh = document.getElementById("loiGioiTinh");
+        let loiSoThich = document.getElementById("loiSoThich");
+        let loiQueQuan = document.getElementById("loiQueQuan");
+
+        // xoa di tat ca loi
+        loiHoTen.innerText = "";
+        loiGioiTinh.innerText = "";
+        loiSoThich.innerText = "";
+        loiQueQuan.innerText = "";
+
+        let dangKyThanhCong = true;
+
+        let hoTenInput = document.getElementById("hoTen");
+
+        // .value de lay ra gia tri nhap vao trong input
+        if (hoTenInput.value.trim() === "") {
+          loiHoTen.innerText = "Khong duoc bo trong ho ten";
+        }
+
+        let gioiTinhRadios = document.getElementsByName("gioiTinh");
+        let daChonGioiTinh = false;
+
+        for (let i = 0; i < gioiTinhRadios.length; i++) {
+          // dung thuoc tinh .checked de kiem tra radio da duoc chon hay chua
+          if (gioiTinhRadios[i].checked == true) {
+            daChonGioiTinh = true;
+            break;
+          }
+        }
+
+        if (daChonGioiTinh == false) {
+          loiGioiTinh.innerText = "Khong duoc de trong gioi tinh";
+          dangKyThanhCong = false;
+        }
+
+        let soThichCheckboxes = document.getElementsByName("soThich");
+        let daChonSoThich = false;
+
+        for (let i = 0; i < soThichCheckboxes.length; i++) {
+          // dung thuoc tinh .checked de kiem tra radio da duoc chon hay chua
+          if (soThichCheckboxes[i].checked == true) {
+            daChonSoThich = true;
+            break;
+          }
+        }
+
+        if (daChonSoThich == false) {
+          loiSoThich.innerText = "Khong duoc de trong so thich";
+          dangKyThanhCong = false;
+        }
+
+        // dung thuoc tinh .value de kiem tra select box
+        let queQuanSelect = document.getElementById("queQuan");
+        if (queQuanSelect.value === "") {
+          loiQueQuan.innerText = "Khong duoc de trong que quan";
+          dangKyThanhCong = false;
+        }
+
+        if (dangKyThanhCong == true) {
+          alert("Dang ki thanh cong");
+        }
+      }
+    </script>
+  </body>
+</html>

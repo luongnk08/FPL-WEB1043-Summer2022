@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slide show demo</title>
+  </head>
+  <body onload="loadAnh();">
+    <div>
+      <img name="img_pet" alt="Ảnh pet ở đây" />
+      <div>
+        <button onclick="previosImage();">Previous</button>
+        <button onclick="start();">Start</button>
+        <button onclick="stop();">Stop</button>
+        <button onclick="nextImage();">Next</button>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      var imageObjects = [];
+      var indexHienTai = 0;
+
+      var intervalId;
+
+      function loadAnh() {
+        var imageNames = [
+          "cat.jpg",
+          "chicken.jpg",
+          "dog.jpg",
+          "monkey.jpg",
+          "pig.jpg",
+        ];
+
+        const imgFolderName = "images/";
+
+        imageNames.forEach(function (e) {
+          var imageObj = new Image();
+          imageObj.src = imgFolderName + e;
+
+          imageObjects.push(imageObj);
+        });
+
+        document.img_pet.src = imageObjects[indexHienTai].src;
+      }
+
+      function nextImage() {
+        indexHienTai++;
+
+        if (indexHienTai >= imageObjects.length) {
+          indexHienTai = 0;
+        }
+
+        document.img_pet.src = imageObjects[indexHienTai].src;
+      }
+
+      function previosImage() {
+        indexHienTai--;
+
+        if (indexHienTai <= 0) {
+          indexHienTai = imageObjects.length - 1;
+        }
+
+        document.img_pet.src = imageObjects[indexHienTai].src;
+      }
+
+      function start() {
+        if (intervalId === undefined) {
+          intervalId = setInterval(function () {
+            nextImage();
+          }, 1000);
+        }
+      }
+
+      function stop() {
+        clearInterval(intervalId);
+        intervalId = undefined;
+      }
+
+      forEachLuongNK(chayFunc);
+    </script>
+  </body>
+</html>

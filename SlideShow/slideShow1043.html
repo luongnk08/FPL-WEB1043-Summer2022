@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <img id="anhConVat" src="./images/cat.jpg" alt="cat.jpg" />
+    </div>
+    <div>
+      <button onclick="previousAnh()">Previous</button>
+      <button onclick="playAnh()">Play</button>
+      <button onclick="pauseAnh()">Pause</button>
+      <button onclick="nextAnh()">Next</button>
+    </div>
+
+    <script type="text/javascript">
+      const imageNames = [
+        "cat.jpg",
+        "chicken.jpg",
+        "dog.jpg",
+        "monkey.jpg",
+        "pig.jpg",
+      ];
+
+      let viTriHienTai = 0;
+
+      let anhConVatImg = document.getElementById("anhConVat");
+
+      let idInterval;
+
+      function previousAnh() {
+        viTriHienTai -= 1; // viTriHienTai = viTriHienTai - 1;
+
+        if (viTriHienTai < 0) {
+          viTriHienTai = imageNames.length - 1;
+        }
+
+        let tenAnh = imageNames[viTriHienTai];
+
+        anhConVatImg.src = "./images/" + tenAnh;
+      }
+
+      function nextAnh() {
+        viTriHienTai += 1; // viTriHienTai = viTriHienTai + 1;
+
+        if (viTriHienTai >= imageNames.length) {
+          viTriHienTai = 0;
+        }
+
+        let tenAnh = imageNames[viTriHienTai];
+
+        anhConVatImg.src = "./images/" + tenAnh;
+      }
+
+      function playAnh() {
+        if (idInterval === undefined) {
+          idInterval = setInterval(nextAnh, 1000);
+        }
+      }
+
+      function pauseAnh() {
+        clearInterval(idInterval);
+        idInterval = undefined;
+      }
+    </script>
+  </body>
+</html>

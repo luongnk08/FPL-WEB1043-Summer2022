@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slide 6</title>
+  </head>
+  <body>
+    <h1>Welcome to Slide 6</h1>
+    <button id="redBtn">Red</button>
+    <button id="blueBtn">Blue</button>
+  </body>
+  <script type="text/javascript">
+    var redBtn = document.getElementById("redBtn");
+    var blueBtn = document.getElementById("blueBtn");
+
+    var h1E = document.getElementsByTagName("h1")[0];
+
+    redBtn.onclick = function () {
+      h1E.style.backgroundColor = "red";
+    };
+
+    blueBtn.onclick = function () {
+      h1E.style.backgroundColor = "blue";
+    };
+  </script>
+</html>

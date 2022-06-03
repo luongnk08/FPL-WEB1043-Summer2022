@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.0.7/angular.min.js"
+      integrity="sha512-01UMXyhmd3nViQV8b0uoTqZZa1MwlnhpC446YRb4FQRTQ0BkjDCwyi70PsDzzX3OCTD921jqA70jOJDmxD6vLQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+  <body>
+    <form action="#" onsubmit="return validateForm()" name="">
+      <p>Name: <input type="text" name="txtName" /></p>
+      <p><input type="submit" value="Submit" /></p>
+    </form>
+
+    <script type="text/javascript">
+      function validateForm() {
+        var name = document.forms[0].txtName.value;
+        if (name == "") {
+          alert("Hay nhap ten vao!");
+          return false;
+        } else {
+          alert("Hi " + name + " !");
+          return true;
+        }
+      }
+    </script>
+  </body>
+</html>

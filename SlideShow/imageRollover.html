@@ -1,0 +1,37 @@
+<html>
+  <head></head>
+  <body onload="loadAnh();">
+    <img
+      name="img_pet"
+      src="images/dog.jpg"
+      onmouseover="onMouseOverEvent();"
+      onmouseout="onMouseOutEvent();"
+    />
+    <script type="text/javascript">
+      // load ảnh khi có sự kiện
+      // function onMouseOverEvent() {
+      //   document.img_pet.src = "images/cat.jpg";
+      // }
+      // function onMouseOutEvent() {
+      //   document.img_pet.src = "images/dog.jpg";
+      // }
+
+      // load trước ảnh
+      var dog = new Image();
+      var cat = new Image();
+      function loadAnh() {
+        dog.src = "images/dog.jpg";
+        cat.src = "images/cat.jpg";
+      }
+
+      loadAnh();
+
+      function onMouseOverEvent() {
+        document.img_pet.src = dog.src;
+      }
+      function onMouseOutEvent() {
+        document.img_pet.src = cat.src;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,107 @@
+<html>
+  <body>
+    <input type="checkbox" name="test" value="how" />
+    <input type="checkbox" name="test" value="are" />
+    <input type="checkbox" name="test" value="you" />
+    <input type="checkbox" name="test" value="?" />
+
+    <select id="country">
+      <option>Viet Nam</option>
+      <option value="Anh">Anh</option>
+      <option selected value="My">My</option>
+    </select>
+    <button onclick="chonQuocGia()">Chọn quốc gia</button>
+
+    <p>
+      <input type="button" value="Chau A" onclick="chauAClick();" />
+      <input type="button" value="Chau Au" onclick="chauAuClick();" />
+      <input type="button" value="Chau My" onclick="chauMy();" />
+    </p>
+
+    <div>
+      <label for="ckKem">Kem:</label>
+      <input type="checkbox" value="Kem que" name="ckKem" />
+    </div>
+
+    <hr />
+    Cac loai kem trong cua hang:<br />
+    <input type="checkbox" value="Kem que" name="ckKem1" />Kem que <br />
+    <input type="checkbox" value="Kem dau" name="ckKem1" />Kem dau <br />
+    <input type="checkbox" value="Kem bo" name="ckKem1" />Kem bo <br />
+    <input type="checkbox" value="Kem vani" name="ckKem1" />Kem vani <br />
+    <div>
+      <input type="radio" value="Lon" name="rdSize" checked />Lon<br />
+      <input type="radio" value="Vua" name="rdSize" />Vua<br />
+      <input type="radio" value="Nho" name="rdSize" />Nho<br />
+    </div>
+
+    <input type="button" onclick="chonKem();" value="Chon kem" />
+    <div id="pKemDaChon">Bạn đã chọn:</div>
+
+    <script type="text/javascript">
+      var ckAr = document.getElementsByName("test");
+      var str = "";
+      for (var i = 0; i < ckAr.length; i++) {
+        str = str + " " + ckAr[i].value;
+      }
+      console.log(str);
+
+      // lấy giá trị của combobox
+      var cbElement = document.getElementById("country");
+      //   cbElement.onchange = function () {
+      //     alert(cbElement.value);
+      //   };
+
+      function chonQuocGia() {
+        alert(cbElement.value);
+      }
+
+      function chauAClick() {
+        cbElement.value = "Viet Nam";
+      }
+
+      function chauAuClick() {
+        cbElement.value = "Anh";
+      }
+
+      function chauMy() {
+        cbElement.value = "My";
+      }
+
+      // get giá trị của checkbox
+      var ckKemElement = document.getElementsByName("ckKem")[0];
+
+      ckKemElement.onchange = function () {
+        if (ckKemElement.checked) {
+          alert("Bạn chọn: " + ckKemElement.value);
+        } else {
+          alert("Bạn đã bỏ chọn: " + ckKemElement.value);
+        }
+      };
+      console.log(ckKemElement.checked);
+
+      function chonKem() {
+        var ckArr = document.getElementsByName("ckKem1");
+        var pChonKem = document.getElementById("pKemDaChon");
+
+        var size = "";
+        var sizeAr = document.getElementsByName("rdSize");
+        for (var i = 0; i < sizeAr.length; i++) {
+          if (sizeAr[i].checked) {
+            size = sizeAr[i].value;
+            break;
+          }
+        }
+
+        for (let i = 0; i < ckArr.length; i++) {
+          if (ckArr[i].checked) {
+            var pElement = document.createElement("p");
+            pElement.innerText = ckArr[i].value + " size: " + size;
+
+            pChonKem.appendChild(pElement);
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
