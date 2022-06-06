@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Khai báo link tới CSS -->
+    <link rel="stylesheet" href="./styles.css" />
+
+    <!-- Khai báo link tới code JS -->
+    <script src="./index.js"></script>
+    <title>Đề thi thử 02 - Môn WEB 1042</title>
+  </head>
+  <body>
+    <div class="container">
+      <h3>ĐĂNG KÍ KHÓA HỌC ONLINE</h3>
+      <form name="registForm" class="registForm">
+        <div class="inputContainer">
+          <span class="inputTitle"> Họ tên </span>
+          <input class="inputText" type="text" required />
+          <span class="errorMessage" name="errorMessage"></span>
+        </div>
+        <div class="inputContainer">
+          <span class="inputTitle"> Email </span>
+          <input class="inputText" type="email" required />
+          <span class="errorMessage" name="errorMessage"></span>
+        </div>
+        <div class="inputContainer">
+          <span class="inputTitle"> Số điện thoại </span>
+          <input class="inputText" type="number" required />
+          <span class="errorMessage" name="errorMessage"></span>
+        </div>
+        <div class="inputContainer">
+          <span class="inputTitle"> Khóa học </span>
+          <select name="khoaHoc" id="khoaHoc" onchange="onChangeKhoaHoc();">
+            <option selected value="500">Khóa HTML</option>
+            <option value="800">Khóa JS</option>
+            <option value="1000">Khóa PHP</option>
+          </select>
+          <span class="errorMessage" name="errorMessage"></span>
+        </div>
+        <div class="inputContainer">
+          <span class="inputTitle"> Học phí </span>
+          <input id="hocPhi" class="inputText" type="number" required />
+          <span class="errorMessage" name="errorMessage"></span>
+        </div>
+        <div class="inputContainer">
+          <span class="inputTitle">Hình thức học </span>
+          <input
+            name="radioGroup"
+            class="radioBtn"
+            type="radio"
+            value="Bạn giới thiệu"
+            checked
+            required
+          />
+          <span>Tại trường</span>
+          <input
+            class="radioBtn"
+            name="radioGroup"
+            type="radio"
+            value="Qua FB"
+            required
+          />
+          <span>Học Online</span>
+        </div>
+        <input
+          id="registBtn"
+          type="button"
+          onclick="register();"
+          value="Đăng kí"
+        />
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.container {
+  border: 1px solid black;
+  width: 400px;
+  padding: 20px;
+}
+
+.container > h3 {
+  text-align: center;
+}
+
+.inputContainer {
+  margin-bottom: 5px;
+}
+
+.inputTitle {
+  display: inline-block;
+  width: 30%;
+}
+
+.inputText {
+  width: 50%;
+}
+
+#registBtn {
+  display: block;
+  margin: 0px auto;
+  margin-top: 20px;
+}
